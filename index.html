@@ -4,123 +4,30 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Icanskk9 — Dokumentasi &amp; Proyek MikroTik</title>
-  <meta name="description" content="MikroTik Hotspot Monitoring, template login/isolir, dan panduan jaringan.">
+  <meta name="description" content="Catatan teknis, pengembangan MikroTik Hotspot Monitoring, template login/isolir, dan panduan jaringan.">
   <style>
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
-      line-height: 1.65;
-      color: #24292f;
-      background-color: #ffffff;
-      margin: 0;
-      padding: 0;
-    }
-    .wrapper {
-      max-width: 780px;
-      margin: 0 auto;
-      padding: 0 20px;
-    }
-    header {
-      border-bottom: 1px solid #d0d7de;
-      padding: 18px 0;
-      margin-bottom: 32px;
-    }
-    .header-inner {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-    .site-title {
-      font-weight: 600;
-      font-size: 1.15rem;
-      color: #24292f;
-      text-decoration: none;
-    }
-    nav a {
-      color: #57606a;
-      text-decoration: none;
-      margin-left: 18px;
-      font-size: 0.95rem;
-    }
-    nav a:hover {
-      color: #0969da;
-      text-decoration: underline;
-    }
-    .intro {
-      margin-bottom: 36px;
-    }
-    .intro h1 {
-      font-size: 1.55rem;
-      font-weight: 600;
-      margin: 0 0 8px 0;
-    }
-    .intro p {
-      color: #57606a;
-      margin: 0;
-      font-size: 0.98rem;
-    }
-    h2 {
-      font-size: 1.15rem;
-      font-weight: 600;
-      padding-bottom: 8px;
-      border-bottom: 1px solid #d0d7de;
-      margin: 0 0 12px 0;
-    }
-    section {
-      margin-bottom: 38px;
-    }
-    .item-list {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-    .item-list li {
-      padding: 14px 0;
-      border-bottom: 1px solid #eaeef2;
-    }
-    .item-list li:last-child {
-      border-bottom: none;
-    }
-    .item-title {
-      font-size: 1.05rem;
-      font-weight: 600;
-      color: #0969da;
-      text-decoration: none;
-    }
-    .item-title:hover {
-      text-decoration: underline;
-    }
-    .item-meta {
-      font-size: 0.83rem;
-      color: #57606a;
-      margin-top: 2px;
-    }
-    .item-desc {
-      font-size: 0.94rem;
-      color: #424a53;
-      margin: 6px 0 0 0;
-    }
-    footer {
-      border-top: 1px solid #d0d7de;
-      padding: 22px 0 40px 0;
-      margin-top: 44px;
-      font-size: 0.88rem;
-      color: #57606a;
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-    footer a {
-      color: #57606a;
-      text-decoration: none;
-      margin-right: 16px;
-    }
-    footer a:hover {
-      color: #0969da;
-      text-decoration: underline;
-    }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; line-height: 1.65; color: #24292f; background-color: #ffffff; margin: 0; padding: 0; }
+    .wrapper { max-width: 780px; margin: 0 auto; padding: 0 20px; }
+    header { border-bottom: 1px solid #d0d7de; padding: 18px 0; margin-bottom: 32px; }
+    .header-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+    .site-title { font-weight: 600; font-size: 1.15rem; color: #24292f; text-decoration: none; }
+    nav a { color: #57606a; text-decoration: none; margin-left: 18px; font-size: 0.95rem; }
+    nav a:hover { color: #0969da; text-decoration: underline; }
+    .intro { margin-bottom: 36px; }
+    .intro h1 { font-size: 1.55rem; font-weight: 600; margin: 0 0 8px 0; }
+    .intro p { color: #57606a; margin: 0; font-size: 0.98rem; }
+    h2 { font-size: 1.15rem; font-weight: 600; padding-bottom: 8px; border-bottom: 1px solid #d0d7de; margin: 0 0 12px 0; }
+    section { margin-bottom: 38px; }
+    .item-list { list-style: none; padding: 0; margin: 0; }
+    .item-list li { padding: 14px 0; border-bottom: 1px solid #eaeef2; }
+    .item-list li:last-child { border-bottom: none; }
+    .item-title { font-size: 1.05rem; font-weight: 600; color: #0969da; text-decoration: none; }
+    .item-title:hover { text-decoration: underline; }
+    .item-meta { font-size: 0.83rem; color: #57606a; margin-top: 2px; }
+    .item-desc { font-size: 0.94rem; color: #424a53; margin: 6px 0 0 0; }
+    footer { border-top: 1px solid #d0d7de; padding: 22px 0 40px 0; margin-top: 44px; font-size: 0.88rem; color: #57606a; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+    footer a { color: #57606a; text-decoration: none; margin-right: 16px; }
+    footer a:hover { color: #0969da; text-decoration: underline; }
   </style>
 </head>
 <body>
@@ -145,7 +52,7 @@
     </div>
 
     <section id="proyek">
-      <h2>Proyek &amp; Tools</h2>
+      <h2>Proyek &amp; Unduhan</h2>
       <ul class="item-list">
         <li>
           <a href="https://icanskk9.github.io/MikroTik-Hotspot-Monitoring/" class="item-title">MikroTik Hotspot Monitoring (Custom UI Edition)</a>
@@ -153,15 +60,15 @@
           <p class="item-desc">Modifikasi antarmuka Mikhmon dengan fitur monitoring PPPoE Active, Tes ONT, Netwatch Access Point, dan manajemen voucher.</p>
         </li>
         <li>
-          <a href="https://icanskk9.github.io/MikroTik-Hotspot-Monitoring/" class="item-title">Template Hotspot Login &amp; Halaman Isolir</a>
-          <div class="item-meta">HTML/CSS • MikroTik RouterOS</div>
-          <p class="item-desc">Koleksi template halaman login hotspot ringan dan halaman informasi isolir otomatis untuk pelanggan PPPoE.</p>
+          <a href="https://icanskk9.github.io/MikroTik-Hotspot-Monitoring/PanduanpenggunaanMikroTikHotspotMonitoring.pdf" class="item-title">Buku Panduan Lengkap MikroTik Hotspot Monitoring (PDF)</a>
+          <div class="item-meta">Dokumentasi Offline • PDF</div>
+          <p class="item-desc">Versi dokumen PDF lengkap yang memuat seluruh langkah instalasi, konfigurasi API, hingga manajemen pelanggan.</p>
         </li>
       </ul>
     </section>
 
     <section id="tutorial">
-      <h2>Panduan &amp; Tutorial</h2>
+      <h2>Panduan &amp; Tutorial Teknis</h2>
       <ul class="item-list">
         <li>
           <a href="tutorial-instalasi-mikhmon.html" class="item-title">Cara Instalasi MikroTik Hotspot Monitoring di Windows &amp; Linux</a>
@@ -177,6 +84,41 @@
           <a href="tutorial-halaman-isolir.html" class="item-title">Memasang Halaman Isolir Pelanggan PPPoE pada MikroTik</a>
           <div class="item-meta">Billing &amp; PPPoE</div>
           <p class="item-desc">Pengaturan firewall NAT dan profile PPPoE untuk mengalihkan pelanggan jatuh tempo ke halaman pemberitahuan.</p>
+        </li>
+        <li>
+          <a href="tutorial-cek-ont-pppoe.html" class="item-title">Cara Cek Status PPPoE Active dan Tes ONT Pelanggan</a>
+          <div class="item-meta">PPPoE &amp; Monitoring</div>
+          <p class="item-desc">Memeriksa daftar pelanggan PPPoE yang sedang aktif dan menguji koneksi perangkat ONT pelanggan.</p>
+        </li>
+        <li>
+          <a href="tutorial-ip-bindings.html" class="item-title">Setting Hotspot IP Bindings untuk Bypass Perangkat Tanpa Login</a>
+          <div class="item-meta">Hotspot Management</div>
+          <p class="item-desc">Memberikan akses internet langsung bagi Access Point, CCTV, atau Smart TV berdasarkan MAC Address.</p>
+        </li>
+        <li>
+          <a href="tutorial-template-login-hotspot.html" class="item-title">Cara Memasang Template Login Page Hotspot MikroTik</a>
+          <div class="item-meta">Kustomisasi UI</div>
+          <p class="item-desc">Mengunggah folder template halaman login responsif dan mengaktifkannya pada Hotspot Server Profile.</p>
+        </li>
+        <li>
+          <a href="tutorial-user-profile-voucher.html" class="item-title">Membuat Paket Voucher Hotspot dan Limit Bandwidth di User Profile</a>
+          <div class="item-meta">Manajemen Voucher</div>
+          <p class="item-desc">Mengatur pembatasan kecepatan download/upload dan penghapusan otomatis voucher kedaluwarsa.</p>
+        </li>
+        <li>
+          <a href="tutorial-pppoe-server.html" class="item-title">Konfigurasi Dasar PPPoE Server di MikroTik untuk Jaringan Rumahan</a>
+          <div class="item-meta">PPPoE Networking</div>
+          <p class="item-desc">Membuat IP Pool, PPP Profile, dan PPPoE Server dengan autentikasi akun pelanggan bulanan.</p>
+        </li>
+        <li>
+          <a href="tutorial-monitoring-traffic.html" class="item-title">Memantau Live Traffic Interface dan Pemakaian Bandwidth</a>
+          <div class="item-meta">Monitoring Jaringan</div>
+          <p class="item-desc">Membaca grafik arus data upload/download secara real-time pada interface ISP maupun lokal.</p>
+        </li>
+        <li>
+          <a href="tutorial-backup-mikrotik.html" class="item-title">Cara Backup Konfigurasi MikroTik dan Database Mikhmon</a>
+          <div class="item-meta">Maintenance &amp; Keamanan</div>
+          <p class="item-desc">Pencadangan rutin konfigurasi router dalam format biner (.backup) maupun script (.rsc).</p>
         </li>
       </ul>
     </section>
