@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Icanskk9 | Portal Open Source MikroTik Hotspot Monitoring &amp; Jaringan</title>
+  <meta name="description" content="MikroTik Hotspot Monitoring, template login page, dan panduan konfigurasi jaringan RT/RW Net.">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; line-height: 1.6; color: #1f2937; background: #f8fafc; }
+    header { background: #0f172a; color: #fff; padding: 1rem 0; }
+    .container { max-width: 960px; margin: 0 auto; padding: 0 1.25rem; }
+    nav { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+    .brand { font-size: 1.25rem; font-weight: 700; color: #38bdf8; text-decoration: none; }
+    .nav-links a { color: #e2e8f0; text-decoration: none; margin-left: 1.25rem; font-size: 0.95rem; }
+    .nav-links a:hover { color: #38bdf8; }
+    .hero { background: #1e293b; color: #fff; padding: 3rem 0; border-bottom: 4px solid #0284c7; }
+    .hero h1 { font-size: 2rem; margin-bottom: 0.75rem; }
+    .hero p { color: #cbd5e1; max-width: 680px; }
+    section { padding: 2.5rem 0; }
+    h2 { font-size: 1.4rem; margin-bottom: 1.25rem; color: #0f172a; border-left: 4px solid #0284c7; padding-left: 0.75rem; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.25rem; }
+    .card { background: #fff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 1.5rem; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
+    .card h3 { margin-bottom: 0.5rem; color: #0f172a; }
+    .card p { font-size: 0.95rem; color: #475569; margin-bottom: 1.25rem; }
+    .btn { display: inline-block; background: #0284c7; color: #fff; padding: 0.55rem 1rem; border-radius: 6px; text-decoration: none; font-size: 0.9rem; font-weight: 600; }
+    .btn:hover { background: #0369a1; }
+    .tutorial-list { background: #fff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 1.25rem 1.5rem; }
+    .tutorial-list li { margin-bottom: 0.75rem; margin-left: 1.25rem; }
+    .tutorial-list a { color: #0284c7; text-decoration: none; font-weight: 500; }
+    .tutorial-list a:hover { text-decoration: underline; }
+    footer { background: #0f172a; color: #94a3b8; padding: 2rem 0; margin-top: 2rem; font-size: 0.9rem; }
+    .footer-links { margin-bottom: 0.75rem; }
+    .footer-links a { color: #cbd5e1; text-decoration: none; margin-right: 1.25rem; }
+    .footer-links a:hover { color: #38bdf8; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <nav>
+        <a href="/" class="brand">ICANSKK9</a>
+        <div class="nav-links">
+          <a href="/">Beranda</a>
+          <a href="#proyek">Proyek</a>
+          <a href="#tutorial">Tutorial</a>
+          <a href="about.html">About</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <div class="hero">
+    <div class="container">
+      <h1>MikroTik Open Source &amp; Networking Tools</h1>
+      <p>Kumpulan aplikasi monitoring hotspot, kustomisasi antarmuka Mikhmon, template halaman login/isolir, serta panduan praktis manajemen jaringan MikroTik.</p>
+    </div>
+  </div>
+
+  <main class="container">
+    <section id="proyek">
+      <h2>Proyek Utama</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>MikroTik Hotspot Monitoring</h3>
+          <p>Pengembangan Mikhmon V3 WS Custom UI Edition dilengkapi monitoring PPPoE Active, Tes ONT, Netwatch Access Point, dan manajemen voucher.</p>
+          <a href="https://icanskk9.github.io/MikroTik-Hotspot-Monitoring/" class="btn">Buka Halaman Proyek</a>
+        </div>
+        <div class="card">
+          <h3>Template Hotspot &amp; Isolir</h3>
+          <p>Kumpulan template halaman login hotspot MikroTik responsif dan halaman pemberitahuan isolir tagihan pelanggan PPPoE.</p>
+          <a href="https://icanskk9.github.io/MikroTik-Hotspot-Monitoring/" class="btn">Lihat Template</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="tutorial">
+      <h2>Panduan &amp; Tutorial MikroTik</h2>
+      <div class="tutorial-list">
+        <ul>
+          <li><a href="tutorial-instalasi-mikhmon.html">Cara Instalasi MikroTik Hotspot Monitoring Custom UI Edition</a></li>
+          <li><a href="tutorial-netwatch-ap.html">Cara Konfigurasi Netwatch untuk Monitoring Access Point</a></li>
+          <li><a href="tutorial-halaman-isolir.html">Cara Memasang Halaman Isolir Pelanggan PPPoE di MikroTik</a></li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-links">
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="privacy-policy.html">Privacy Policy</a>
+      </div>
+      <p>&copy; 2026 Icanskk9 • Open Source Educational &amp; Networking Project.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
