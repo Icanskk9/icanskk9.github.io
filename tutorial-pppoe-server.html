@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Konfigurasi Dasar PPPoE Server di MikroTik — icanskk9.github.io</title>
+  <meta name="description" content="Langkah setting PPPoE Server di MikroTik untuk mendistribusikan layanan internet rumahan dengan manajemen akun dan bandwidth terpusat.">
+  <style>
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; line-height: 1.7; color: #24292f; background: #fff; margin: 0; }
+    .wrapper { max-width: 780px; margin: 0 auto; padding: 0 20px; }
+    header { border-bottom: 1px solid #d0d7de; padding: 18px 0; margin-bottom: 32px; }
+    .header-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+    .site-title { font-weight: 600; font-size: 1.15rem; color: #24292f; text-decoration: none; }
+    nav a { color: #57606a; text-decoration: none; margin-left: 18px; font-size: 0.95rem; }
+    nav a:hover { color: #0969da; text-decoration: underline; }
+    h1 { font-size: 1.6rem; font-weight: 600; margin-bottom: 8px; line-height: 1.3; }
+    .meta { font-size: 0.85rem; color: #57606a; margin-bottom: 24px; padding-bottom: 16px; border-bottom: 1px solid #eaeef2; }
+    h2 { font-size: 1.2rem; font-weight: 600; margin-top: 28px; margin-bottom: 10px; }
+    p, li { color: #333; margin-bottom: 14px; }
+    pre { background: #f6f8fa; padding: 14px; border-radius: 6px; border: 1px solid #d0d7de; overflow-x: auto; font-size: 0.88rem; }
+    a.link { color: #0969da; text-decoration: none; }
+    footer { border-top: 1px solid #d0d7de; padding: 22px 0 40px 0; margin-top: 44px; font-size: 0.88rem; color: #57606a; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+    footer a { color: #57606a; text-decoration: none; margin-right: 16px; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrapper header-inner">
+      <a href="/" class="site-title">icanskk9.github.io</a>
+      <nav>
+        <a href="/">Home</a>
+        <a href="/#proyek">Proyek</a>
+        <a href="/#tutorial">Tutorial</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+  <main class="wrapper">
+    <article>
+      <h1>Konfigurasi Dasar PPPoE Server di MikroTik untuk Jaringan Rumahan</h1>
+      <div class="meta">Kategori: PPPoE Networking • MikroTik RouterOS</div>
+      <p>Untuk pelanggan internet rumahan (bulanan), protokol <strong>PPPoE (Point-to-Point Protocol over Ethernet)</strong> jauh lebih stabil dan aman dibandingkan metode DHCP biasa karena setiap pelanggan diautentikasi menggunakan username dan password unik pada ONT/router masing-masing.</p>
+      <h2>1. Membuat IP Pool dan PPP Profile</h2>
+      <pre>/ip pool add name=pool-pppoe ranges=10.20.30.2-10.20.30.254
+/ppp profile add name=paket-10mbps local-address=10.20.30.1 remote-address=pool-pppoe rate-limit=10M/10M dns-server=8.8.8.8,1.1.1.1</pre>
+      <h2>2. Mengaktifkan PPPoE Server &amp; Membuat Akun (Secret)</h2>
+      <pre>/interface pppoe-server server add service-name=pppoe-induk interface=ether3-lokal default-profile=paket-10mbps one-session-per-host=yes disabled=no
+/ppp secret add name=pelanggan01 password=rahasia123 service=pppoe profile=paket-10mbps</pre>
+      <p>Pastikan opsi <code>one-session-per-host=yes</code> diaktifkan untuk mencegah satu akun PPPoE dipakai dial ganda dari dua rumah berbeda. Panduan manajemen PPPoE lewat dashboard tersedia di <a href="https://icanskk9.github.io/MikroTik-Hotspot-Monitoring/PanduanpenggunaanMikroTikHotspotMonitoring.pdf" class="link">Dokumen PDF Panduan</a>.</p>
+    </article>
+    <footer>
+      <div><a href="about.html">About</a><a href="contact.html">Contact</a><a href="privacy-policy.html">Privacy Policy</a></div>
+      <div>&copy; 2026 Icanskk9</div>
+    </footer>
+  </main>
+</body>
+</html>
