@@ -3,101 +3,193 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Icanskk9 | Portal Open Source MikroTik Hotspot Monitoring &amp; Jaringan</title>
-  <meta name="description" content="MikroTik Hotspot Monitoring, template login page, dan panduan konfigurasi jaringan RT/RW Net.">
+  <title>Icanskk9 — Dokumentasi &amp; Proyek MikroTik</title>
+  <meta name="description" content="MikroTik Hotspot Monitoring, template login/isolir, dan panduan jaringan.">
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; line-height: 1.6; color: #1f2937; background: #f8fafc; }
-    header { background: #0f172a; color: #fff; padding: 1rem 0; }
-    .container { max-width: 960px; margin: 0 auto; padding: 0 1.25rem; }
-    nav { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
-    .brand { font-size: 1.25rem; font-weight: 700; color: #38bdf8; text-decoration: none; }
-    .nav-links a { color: #e2e8f0; text-decoration: none; margin-left: 1.25rem; font-size: 0.95rem; }
-    .nav-links a:hover { color: #38bdf8; }
-    .hero { background: #1e293b; color: #fff; padding: 3rem 0; border-bottom: 4px solid #0284c7; }
-    .hero h1 { font-size: 2rem; margin-bottom: 0.75rem; }
-    .hero p { color: #cbd5e1; max-width: 680px; }
-    section { padding: 2.5rem 0; }
-    h2 { font-size: 1.4rem; margin-bottom: 1.25rem; color: #0f172a; border-left: 4px solid #0284c7; padding-left: 0.75rem; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.25rem; }
-    .card { background: #fff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 1.5rem; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
-    .card h3 { margin-bottom: 0.5rem; color: #0f172a; }
-    .card p { font-size: 0.95rem; color: #475569; margin-bottom: 1.25rem; }
-    .btn { display: inline-block; background: #0284c7; color: #fff; padding: 0.55rem 1rem; border-radius: 6px; text-decoration: none; font-size: 0.9rem; font-weight: 600; }
-    .btn:hover { background: #0369a1; }
-    .tutorial-list { background: #fff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 1.25rem 1.5rem; }
-    .tutorial-list li { margin-bottom: 0.75rem; margin-left: 1.25rem; }
-    .tutorial-list a { color: #0284c7; text-decoration: none; font-weight: 500; }
-    .tutorial-list a:hover { text-decoration: underline; }
-    footer { background: #0f172a; color: #94a3b8; padding: 2rem 0; margin-top: 2rem; font-size: 0.9rem; }
-    .footer-links { margin-bottom: 0.75rem; }
-    .footer-links a { color: #cbd5e1; text-decoration: none; margin-right: 1.25rem; }
-    .footer-links a:hover { color: #38bdf8; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+      line-height: 1.65;
+      color: #24292f;
+      background-color: #ffffff;
+      margin: 0;
+      padding: 0;
+    }
+    .wrapper {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    header {
+      border-bottom: 1px solid #d0d7de;
+      padding: 18px 0;
+      margin-bottom: 32px;
+    }
+    .header-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .site-title {
+      font-weight: 600;
+      font-size: 1.15rem;
+      color: #24292f;
+      text-decoration: none;
+    }
+    nav a {
+      color: #57606a;
+      text-decoration: none;
+      margin-left: 18px;
+      font-size: 0.95rem;
+    }
+    nav a:hover {
+      color: #0969da;
+      text-decoration: underline;
+    }
+    .intro {
+      margin-bottom: 36px;
+    }
+    .intro h1 {
+      font-size: 1.55rem;
+      font-weight: 600;
+      margin: 0 0 8px 0;
+    }
+    .intro p {
+      color: #57606a;
+      margin: 0;
+      font-size: 0.98rem;
+    }
+    h2 {
+      font-size: 1.15rem;
+      font-weight: 600;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #d0d7de;
+      margin: 0 0 12px 0;
+    }
+    section {
+      margin-bottom: 38px;
+    }
+    .item-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .item-list li {
+      padding: 14px 0;
+      border-bottom: 1px solid #eaeef2;
+    }
+    .item-list li:last-child {
+      border-bottom: none;
+    }
+    .item-title {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: #0969da;
+      text-decoration: none;
+    }
+    .item-title:hover {
+      text-decoration: underline;
+    }
+    .item-meta {
+      font-size: 0.83rem;
+      color: #57606a;
+      margin-top: 2px;
+    }
+    .item-desc {
+      font-size: 0.94rem;
+      color: #424a53;
+      margin: 6px 0 0 0;
+    }
+    footer {
+      border-top: 1px solid #d0d7de;
+      padding: 22px 0 40px 0;
+      margin-top: 44px;
+      font-size: 0.88rem;
+      color: #57606a;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    footer a {
+      color: #57606a;
+      text-decoration: none;
+      margin-right: 16px;
+    }
+    footer a:hover {
+      color: #0969da;
+      text-decoration: underline;
+    }
   </style>
 </head>
 <body>
 
   <header>
-    <div class="container">
+    <div class="wrapper header-inner">
+      <a href="/" class="site-title">icanskk9.github.io</a>
       <nav>
-        <a href="/" class="brand">ICANSKK9</a>
-        <div class="nav-links">
-          <a href="/">Beranda</a>
-          <a href="#proyek">Proyek</a>
-          <a href="#tutorial">Tutorial</a>
-          <a href="about.html">About</a>
-          <a href="contact.html">Contact</a>
-        </div>
+        <a href="/">Home</a>
+        <a href="#proyek">Proyek</a>
+        <a href="#tutorial">Tutorial</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
       </nav>
     </div>
   </header>
 
-  <div class="hero">
-    <div class="container">
-      <h1>MikroTik Open Source &amp; Networking Tools</h1>
-      <p>Kumpulan aplikasi monitoring hotspot, kustomisasi antarmuka Mikhmon, template halaman login/isolir, serta panduan praktis manajemen jaringan MikroTik.</p>
+  <main class="wrapper">
+    <div class="intro">
+      <h1>MikroTik Hotspot Monitoring &amp; Dokumentasi Jaringan</h1>
+      <p>Repositori publik untuk proyek kustomisasi Mikhmon V3, template halaman login/isolir MikroTik, serta catatan konfigurasi jaringan RT/RW Net.</p>
     </div>
-  </div>
 
-  <main class="container">
     <section id="proyek">
-      <h2>Proyek Utama</h2>
-      <div class="grid">
-        <div class="card">
-          <h3>MikroTik Hotspot Monitoring</h3>
-          <p>Pengembangan Mikhmon V3 WS Custom UI Edition dilengkapi monitoring PPPoE Active, Tes ONT, Netwatch Access Point, dan manajemen voucher.</p>
-          <a href="https://icanskk9.github.io/MikroTik-Hotspot-Monitoring/" class="btn">Buka Halaman Proyek</a>
-        </div>
-        <div class="card">
-          <h3>Template Hotspot &amp; Isolir</h3>
-          <p>Kumpulan template halaman login hotspot MikroTik responsif dan halaman pemberitahuan isolir tagihan pelanggan PPPoE.</p>
-          <a href="https://icanskk9.github.io/MikroTik-Hotspot-Monitoring/" class="btn">Lihat Template</a>
-        </div>
-      </div>
+      <h2>Proyek &amp; Tools</h2>
+      <ul class="item-list">
+        <li>
+          <a href="https://icanskk9.github.io/MikroTik-Hotspot-Monitoring/" class="item-title">MikroTik Hotspot Monitoring (Custom UI Edition)</a>
+          <div class="item-meta">Open Source • GPLv2 • Mikhmon V3 WS</div>
+          <p class="item-desc">Modifikasi antarmuka Mikhmon dengan fitur monitoring PPPoE Active, Tes ONT, Netwatch Access Point, dan manajemen voucher.</p>
+        </li>
+        <li>
+          <a href="https://icanskk9.github.io/MikroTik-Hotspot-Monitoring/" class="item-title">Template Hotspot Login &amp; Halaman Isolir</a>
+          <div class="item-meta">HTML/CSS • MikroTik RouterOS</div>
+          <p class="item-desc">Koleksi template halaman login hotspot ringan dan halaman informasi isolir otomatis untuk pelanggan PPPoE.</p>
+        </li>
+      </ul>
     </section>
 
     <section id="tutorial">
-      <h2>Panduan &amp; Tutorial MikroTik</h2>
-      <div class="tutorial-list">
-        <ul>
-          <li><a href="tutorial-instalasi-mikhmon.html">Cara Instalasi MikroTik Hotspot Monitoring Custom UI Edition</a></li>
-          <li><a href="tutorial-netwatch-ap.html">Cara Konfigurasi Netwatch untuk Monitoring Access Point</a></li>
-          <li><a href="tutorial-halaman-isolir.html">Cara Memasang Halaman Isolir Pelanggan PPPoE di MikroTik</a></li>
-        </ul>
-      </div>
+      <h2>Panduan &amp; Tutorial</h2>
+      <ul class="item-list">
+        <li>
+          <a href="tutorial-instalasi-mikhmon.html" class="item-title">Cara Instalasi MikroTik Hotspot Monitoring di Windows &amp; Linux</a>
+          <div class="item-meta">Panduan Instalasi</div>
+          <p class="item-desc">Langkah konfigurasi web server lokal dan menghubungkan API MikroTik ke dashboard monitoring.</p>
+        </li>
+        <li>
+          <a href="tutorial-netwatch-ap.html" class="item-title">Konfigurasi Netwatch untuk Monitoring Perangkat Access Point</a>
+          <div class="item-meta">Networking • RouterOS</div>
+          <p class="item-desc">Memantau status koneksi AP secara real-time menggunakan fitur Netwatch bawaan MikroTik.</p>
+        </li>
+        <li>
+          <a href="tutorial-halaman-isolir.html" class="item-title">Memasang Halaman Isolir Pelanggan PPPoE pada MikroTik</a>
+          <div class="item-meta">Billing &amp; PPPoE</div>
+          <p class="item-desc">Pengaturan firewall NAT dan profile PPPoE untuk mengalihkan pelanggan jatuh tempo ke halaman pemberitahuan.</p>
+        </li>
+      </ul>
     </section>
-  </main>
 
-  <footer>
-    <div class="container">
-      <div class="footer-links">
+    <footer>
+      <div>
         <a href="about.html">About</a>
         <a href="contact.html">Contact</a>
         <a href="privacy-policy.html">Privacy Policy</a>
       </div>
-      <p>&copy; 2026 Icanskk9 • Open Source Educational &amp; Networking Project.</p>
-    </div>
-  </footer>
+      <div>&copy; 2026 Icanskk9</div>
+    </footer>
+  </main>
 
 </body>
 </html>
