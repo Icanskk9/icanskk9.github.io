@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Memasang Halaman Isolir Pelanggan PPPoE — icanskk9.github.io</title>
+  <meta name="description" content="Tutorial cara membuat IP Pool isolir, PPP Profile, dan aturan NAT redirect halaman pemberitahuan tagihan pelanggan PPPoE di MikroTik.">
+  <style>
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; line-height: 1.7; color: #24292f; background: #fff; margin: 0; }
+    .wrapper { max-width: 780px; margin: 0 auto; padding: 0 20px; }
+    header { border-bottom: 1px solid #d0d7de; padding: 18px 0; margin-bottom: 32px; }
+    .header-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+    .site-title { font-weight: 600; font-size: 1.15rem; color: #24292f; text-decoration: none; }
+    nav a { color: #57606a; text-decoration: none; margin-left: 18px; font-size: 0.95rem; }
+    nav a:hover { color: #0969da; text-decoration: underline; }
+    h1 { font-size: 1.6rem; font-weight: 600; margin-bottom: 8px; line-height: 1.3; }
+    .meta { font-size: 0.85rem; color: #57606a; margin-bottom: 24px; padding-bottom: 16px; border-bottom: 1px solid #eaeef2; }
+    h2 { font-size: 1.2rem; font-weight: 600; margin-top: 28px; margin-bottom: 10px; }
+    p, li { color: #333; margin-bottom: 14px; }
+    ol, ul { padding-left: 22px; margin-bottom: 18px; }
+    code { background: #f6f8fa; padding: 2px 6px; border-radius: 4px; font-size: 0.9em; border: 1px solid #d0d7de; }
+    pre { background: #f6f8fa; padding: 14px; border-radius: 6px; border: 1px solid #d0d7de; overflow-x: auto; font-size: 0.88rem; }
+    footer { border-top: 1px solid #d0d7de; padding: 22px 0 40px 0; margin-top: 44px; font-size: 0.88rem; color: #57606a; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+    footer a { color: #57606a; text-decoration: none; margin-right: 16px; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrapper header-inner">
+      <a href="/" class="site-title">icanskk9.github.io</a>
+      <nav>
+        <a href="/">Home</a>
+        <a href="/#proyek">Proyek</a>
+        <a href="/#tutorial">Tutorial</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrapper">
+    <article>
+      <h1>Memasang Halaman Isolir Pelanggan PPPoE pada MikroTik</h1>
+      <div class="meta">Kategori: Billing &amp; PPPoE • MikroTik RouterOS</div>
+
+      <p>Halaman isolir berfungsi mengalihkan koneksi internet pelanggan PPPoE yang melewati masa jatuh tempo pembayaran ke halaman pemberitahuan khusus, alih-alih memutus koneksi secara total sehingga pelanggan bingung mengapa internet mati.</p>
+
+      <h2>1. Membuat IP Pool Khusus Isolir</h2>
+      <p>Buat rentang alamat IP khusus yang hanya diberikan kepada pelanggan berstatus isolir melalui menu <strong>IP &rarr; Pool</strong>:</p>
+      <pre>/ip pool add name=pool-isolir ranges=172.16.99.2-172.16.99.254</pre>
+
+      <h2>2. Membuat PPP Profile Isolir</h2>
+      <p>Masuk ke menu <strong>PPP &rarr; Profiles</strong> dan buat profil baru bernama <code>isolir</code> dengan mengarahkan <strong>Remote Address</strong> ke <code>pool-isolir</code> serta membatasi <em>Rate Limit</em> (misalnya <code>64k/64k</code>).</p>
+      <pre>/ppp profile add name=isolir local-address=172.16.99.1 remote-address=pool-isolir rate-limit=64k/64k</pre>
+
+      <h2>3. Mengarahkan Trafik HTTP ke Halaman Isolir</h2>
+      <p>Tambahkan aturan NAT pada <strong>IP &rarr; Firewall &rarr; NAT</strong> untuk membelokkan akses browser pelanggan dari subnet <code>172.16.99.0/24</code> menuju IP server lokal tempat file halaman isolir disimpan (misalnya <code>192.168.1.100</code> port <code>80</code>), lalu blokir akses internet lainnya di bagian Filter Rules:</p>
+      <pre>/ip firewall nat
+add chain=dstnat src-address=172.16.99.0/24 protocol=tcp dst-port=80 action=dst-nat to-addresses=192.168.1.100 to-ports=80 comment="Redirect Halaman Isolir"
+
+/ip firewall filter
+add chain=forward src-address=172.16.99.0/24 dst-address=!192.168.1.100 action=drop comment="Blokir Internet Pelanggan Isolir"</pre>
+      <p>Ketika pelanggan jatuh tempo, cukup ubah profil akunnya di menu <strong>PPP &rarr; Secrets</strong> (atau langsung melalui fitur manajemen PPPoE di dashboard monitoring) menjadi <code>isolir</code>.</p>
+    </article>
+
+    <footer>
+      <div>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="privacy-policy.html">Privacy Policy</a>
+      </div>
+      <div>&copy; 2026 Icanskk9</div>
+    </footer>
+  </main>
+</body>
+</html>
